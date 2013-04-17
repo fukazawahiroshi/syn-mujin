@@ -193,7 +193,7 @@ return null;
     	List<String> locationList = new ArrayList<String>();
     	TreeSet<String> deps=EmployeeService.getDepartments(companyStaff,locationList);
     	requestScope("locationList", locationList);
-    	System.out.println("locationlist"+locationList);
+//    	System.out.println("locationlist"+locationList);
 
 //    	if(deps.isEmpty()){
 //    		requestScope("status", "nodata");

@@ -113,7 +113,7 @@ public class AssetService {
 			NamespaceManager.set(parts[1]);
 
 			// HiroshiFukasawa add
-			// AssetServiceのメンバ変数VALIDDOMAINに処理中のドメインemailアドレスを登録
+			// AssetServiceのメンバ変数VALIDDOMAINに追加ドメイン名を登録（AdmUserService.syncUsersで使用するため）
 //			AssetService.setAssets(email);
 			AssetService.setAssetsVALIDDOMAIN(email);
 

@@ -16,6 +16,7 @@ import net.bcglex.gproto.meta.AdminMeta;
 import net.bcglex.gproto.meta.AssetMeta;
 import net.bcglex.gproto.meta.DomainMeta;
 import net.bcglex.gproto.meta.EmployeeMeta;
+import net.bcglex.gproto.model.AdmUser;
 import net.bcglex.gproto.model.Employee;
 
 import org.codehaus.jackson.map.ObjectMapper;
@@ -29,6 +30,7 @@ import au.com.bytecode.opencsv.CSVReader;
 
 import com.google.appengine.api.NamespaceManager;
 import com.google.appengine.api.datastore.Key;
+import com.google.appengine.api.users.UserServiceFactory;
 import com.google.gdata.data.contacts.ContactEntry;
 import com.google.gdata.data.extensions.Email;
 import com.google.gdata.data.extensions.Name;
@@ -132,87 +134,87 @@ public class EmployeeService {
   	    }
 
 
-	    //TEST
-	    System.out.println(entry.getBillingInformation());
-	    System.out.println(entry.getBirthday());
-	    System.out.println(entry.getCalendarLinks());
-	    System.out.println(entry.getContactEditPhotoLink());
-	    System.out.println(entry.getContactPhotoLink());
-	    System.out.println(entry.getDirectoryServer());
-	    System.out.println(entry.getEmailAddresses());
-	    System.out.println(entry.getEvents());
-	    System.out.println(entry.getExtendedProperties());
-	    System.out.println(entry.getExternalIds());
-	    System.out.println(entry.getGender());
-	    System.out.println(entry.getHobbies());
-	    System.out.println(entry.getImAddresses());
-	    System.out.println(entry.getInitials());
-	    System.out.println(entry.getJots());
-	    System.out.println(entry.getLanguages());
-	    System.out.println(entry.getMaidenName());
-	    System.out.println(entry.getMileage());
-	    System.out.println(entry.getName());
-	    System.out.println(entry.getNickname());
-	    System.out.println(entry.getOccupation());
-	    System.out.println(entry.getOrganizations());
-	    System.out.println(entry.getPhoneNumbers());
-	    System.out.println(entry.getPostalAddresses());
-	    System.out.println(entry.getPriority());
-	    System.out.println(entry.getRelations());
-	    System.out.println(entry.getSensitivity());
-	    System.out.println(entry.getShortName());
-	    System.out.println(entry.getStructuredPostalAddresses());
-	    System.out.println(entry.getSubject());
-	    System.out.println(entry.getUserDefinedFields());
-	    System.out.println(entry.getWebsites());
-	    System.out.println(entry.getWhere());
-//	    System.out.println(entry.getAdaptedEntry());
-//	    System.out.println(entry.getAdaptor());
-	    System.out.println(entry.getAdaptors());
-	    System.out.println(entry.getAuthors());
-	    System.out.println(entry.getCanEdit());
-	    System.out.println(entry.getCategories());
-	    System.out.println(entry.getContent());
-//	    System.out.println(entry.getContentHandlerInfo());
-	    System.out.println(entry.getContributors());
-	    System.out.println(entry.getEdited());
-	    System.out.println(entry.getEditLink());
-	    System.out.println(entry.getEtag());
-//	    System.out.println(entry.getHandler());
-	    System.out.println(entry.getHtmlLink());
-	    System.out.println(entry.getId());
-	    System.out.println(entry.getKind());
-//	    System.out.println(entry.getLink());
-	    System.out.println(entry.getLinks());
-	    System.out.println(entry.getLinks());
-	    System.out.println(entry.getMediaEditLink());
-//	    System.out.println(entry.getPlainTextContent());	//カナ
-	    System.out.println(entry.getPubControl());
-	    System.out.println(entry.getPublished());
-	    System.out.println(entry.getResumableEditMediaLink());
-	    System.out.println(entry.getRights());
-	    System.out.println(entry.getSelectedFields());
-	   //System.out.println(entry.getSelf());
-	    System.out.println(entry.getSelfLink());
-	    System.out.println(entry.getService());
-	    System.out.println(entry.getSource());
-	    System.out.println(entry.getSummary());
-//	    System.out.println(entry.getTextContent());
-	    System.out.println(entry.getTitle());
-	    System.out.println(entry.getUpdated());
-	    System.out.println(entry.getVersionId());
-
-//	    System.out.println(entry.getExtension());
-//	    System.out.println(entry.getExtensionDescription());
-//	    System.out.println(entry.getExtensionHandler());
-	    System.out.println(entry.getExtensions());
-//	    System.out.println(entry.getManifest());
-//	    System.out.println(entry.getRepeatingExtension());
-	    System.out.println(entry.getRepeatingExtensions());
-	    System.out.println(entry.getXmlBlob());
-	    System.out.println(entry.getExtensionLocalName());
-	    System.out.println(entry.getExtensionNamespace());
-	    //TEST
+//	    //TEST
+//	    System.out.println(entry.getBillingInformation());
+//	    System.out.println(entry.getBirthday());
+//	    System.out.println(entry.getCalendarLinks());
+//	    System.out.println(entry.getContactEditPhotoLink());
+//	    System.out.println(entry.getContactPhotoLink());
+//	    System.out.println(entry.getDirectoryServer());
+//	    System.out.println(entry.getEmailAddresses());
+//	    System.out.println(entry.getEvents());
+//	    System.out.println(entry.getExtendedProperties());
+//	    System.out.println(entry.getExternalIds());
+//	    System.out.println(entry.getGender());
+//	    System.out.println(entry.getHobbies());
+//	    System.out.println(entry.getImAddresses());
+//	    System.out.println(entry.getInitials());
+//	    System.out.println(entry.getJots());
+//	    System.out.println(entry.getLanguages());
+//	    System.out.println(entry.getMaidenName());
+//	    System.out.println(entry.getMileage());
+//	    System.out.println(entry.getName());
+//	    System.out.println(entry.getNickname());
+//	    System.out.println(entry.getOccupation());
+//	    System.out.println(entry.getOrganizations());
+//	    System.out.println(entry.getPhoneNumbers());
+//	    System.out.println(entry.getPostalAddresses());
+//	    System.out.println(entry.getPriority());
+//	    System.out.println(entry.getRelations());
+//	    System.out.println(entry.getSensitivity());
+//	    System.out.println(entry.getShortName());
+//	    System.out.println(entry.getStructuredPostalAddresses());
+//	    System.out.println(entry.getSubject());
+//	    System.out.println(entry.getUserDefinedFields());
+//	    System.out.println(entry.getWebsites());
+//	    System.out.println(entry.getWhere());
+////	    System.out.println(entry.getAdaptedEntry());
+////	    System.out.println(entry.getAdaptor());
+//	    System.out.println(entry.getAdaptors());
+//	    System.out.println(entry.getAuthors());
+//	    System.out.println(entry.getCanEdit());
+//	    System.out.println(entry.getCategories());
+//	    System.out.println(entry.getContent());
+////	    System.out.println(entry.getContentHandlerInfo());
+//	    System.out.println(entry.getContributors());
+//	    System.out.println(entry.getEdited());
+//	    System.out.println(entry.getEditLink());
+//	    System.out.println(entry.getEtag());
+////	    System.out.println(entry.getHandler());
+//	    System.out.println(entry.getHtmlLink());
+//	    System.out.println(entry.getId());
+//	    System.out.println(entry.getKind());
+////	    System.out.println(entry.getLink());
+//	    System.out.println(entry.getLinks());
+//	    System.out.println(entry.getLinks());
+//	    System.out.println(entry.getMediaEditLink());
+////	    System.out.println(entry.getPlainTextContent());	//カナ
+//	    System.out.println(entry.getPubControl());
+//	    System.out.println(entry.getPublished());
+//	    System.out.println(entry.getResumableEditMediaLink());
+//	    System.out.println(entry.getRights());
+//	    System.out.println(entry.getSelectedFields());
+//	   //System.out.println(entry.getSelf());
+//	    System.out.println(entry.getSelfLink());
+//	    System.out.println(entry.getService());
+//	    System.out.println(entry.getSource());
+//	    System.out.println(entry.getSummary());
+////	    System.out.println(entry.getTextContent());
+//	    System.out.println(entry.getTitle());
+//	    System.out.println(entry.getUpdated());
+//	    System.out.println(entry.getVersionId());
+//
+////	    System.out.println(entry.getExtension());
+////	    System.out.println(entry.getExtensionDescription());
+////	    System.out.println(entry.getExtensionHandler());
+//	    System.out.println(entry.getExtensions());
+////	    System.out.println(entry.getManifest());
+////	    System.out.println(entry.getRepeatingExtension());
+//	    System.out.println(entry.getRepeatingExtensions());
+//	    System.out.println(entry.getXmlBlob());
+//	    System.out.println(entry.getExtensionLocalName());
+//	    System.out.println(entry.getExtensionNamespace());
+//	    //TEST
 
 		//name
 //	    String kanaName = entry.getPlainTextContent();
@@ -241,6 +243,10 @@ public class EmployeeService {
 	    	emp.setSname(sname);
 //	    if(kanaName.isEmpty()==false)
 //	    	emp.setKanaName(kanaName);
+
+	    // HiroshiFukasawa add 社員テーブルの表示フラグはデフォルトtrue（表示）とする処理を追加
+	    emp.setNeedToShow(true);
+
 	    Datastore.put(emp);
 	}
 
@@ -471,6 +477,14 @@ public class EmployeeService {
 	}
 
 	private static List<Employee> getEmployees(String department, String section, String subsection, Boolean hide, String[] sort){
+		// HiroshiFukasawa add 拠点絞込み対応
+		// ログインユーザの情報から表示対象拠点を検索しこれをsetTargetLocation()しておく。
+		// この拠点に属する社員のみ一覧に表示する。
+		AdmUser user=AdmUserService.getUserByEmail(UserServiceFactory.getUserService().getCurrentUser().getEmail());
+		setTargetLocation(user.getLocation());
+		System.out.println("location"+user.getLocation());
+		// add end
+
 		EmployeeMeta e=EmployeeMeta.get();
 		List<Employee> elist=null;
 		ModelQuery<Employee> equery=null;
@@ -480,6 +494,7 @@ public class EmployeeService {
 				String location=getTargetLocation();
 				equery=Datastore.query(e)
 						.filter(e.needToShow.equal(true), e.location.equal(location));
+//				System.out.println("e.location"+e.location);
 			} else {
 				equery=Datastore.query(e);
 			}
@@ -531,7 +546,9 @@ public class EmployeeService {
 
 	public static List<Employee> getEmployeesSorted(String department, String section, String subsection, String sortColumn, String sortType){
 		String[] sort={sortColumn, sortType};
-		return getEmployees(department, section, subsection, false, sort);
+		// HiroshiFukasawa mod 拠点絞込み処理のため変更
+//		return getEmployees(department, section, subsection, false, sort);
+		return getEmployees(department, section, subsection, true, sort);
 	}
 
 

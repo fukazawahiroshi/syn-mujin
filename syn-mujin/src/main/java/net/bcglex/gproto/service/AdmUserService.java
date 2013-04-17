@@ -43,6 +43,7 @@ public class AdmUserService {
 	}
 
 	public static AdmUser getUserByEmail(String email){
+		NamespaceManager.set("root");
 		Key key=Datastore.createKey(AdmUser.class, email);
 		try {
 			return Datastore.get(AdmUser.class, key);
@@ -120,7 +121,7 @@ public class AdmUserService {
 	public static void updateLocation(String location) {
 		// TODO 自動生成されたメソッド・スタブ
 		NamespaceManager.set("root");
-		System.out.println(UserServiceFactory.getUserService().getCurrentUser().getEmail());
+//		System.out.println(UserServiceFactory.getUserService().getCurrentUser().getEmail());
 		AdmUser user=AdmUserService.getUserByEmail(UserServiceFactory.getUserService().getCurrentUser().getEmail());
 	    Key key=Datastore.createKey(AdmUser.class, UserServiceFactory.getUserService().getCurrentUser().getEmail());
 	    user.setLocation(location);

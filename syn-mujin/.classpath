@@ -13,12 +13,12 @@
 	<classpathentry kind="var" path="M2_REPO/junit/junit/4.7/junit-4.7.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/google/appengine/appengine-api-stubs/1.7.6/appengine-api-stubs-1.7.6.jar"/>
 	<classpathentry kind="var" path="M2_REPO/com/google/appengine/appengine-testing/1.7.6/appengine-testing-1.7.6.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/syn-mujin/war/WEB-INF/lib/opencsv-2.3.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/syn-mujin/war/WEB-INF/lib/gdata-client-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/syn-mujin/war/WEB-INF/lib/gdata-client-meta-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/syn-mujin/war/WEB-INF/lib/gdata-contacts-3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/syn-mujin/war/WEB-INF/lib/gdata-core-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/syn-mujin/war/WEB-INF/lib/jackson-core-asl-1.9.12.jar"/>
-	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/syn-mujin/war/WEB-INF/lib/jackson-mapper-asl-1.9.12.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/Git_syn-mujin/syn-mujin/syn-mujin/war/WEB-INF/lib/opencsv-2.3.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/Git_syn-mujin/syn-mujin/syn-mujin/war/WEB-INF/lib/gdata-client-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/Git_syn-mujin/syn-mujin/syn-mujin/war/WEB-INF/lib/gdata-client-meta-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/Git_syn-mujin/syn-mujin/syn-mujin/war/WEB-INF/lib/gdata-contacts-3.0.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/Git_syn-mujin/syn-mujin/syn-mujin/war/WEB-INF/lib/gdata-core-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/Git_syn-mujin/syn-mujin/syn-mujin/war/WEB-INF/lib/jackson-core-asl-1.9.12.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/fukawsawa/デスクトップ/Git_syn-mujin/syn-mujin/syn-mujin/war/WEB-INF/lib/jackson-mapper-asl-1.9.12.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

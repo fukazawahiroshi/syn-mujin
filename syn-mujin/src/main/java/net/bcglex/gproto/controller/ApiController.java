@@ -148,6 +148,7 @@ public class ApiController extends Controller {
     		ObjectMapper mapper=new ObjectMapper();
     		ArrayNode node=mapper.valueToTree(emps);
     		response.getWriter().println(node.toString());
+    	// user追加処理
     	} else if(param("adduser")!=null){
     		if(AdmUserService.addUser(param("adduser"))){
         		response.getWriter().println(1);
