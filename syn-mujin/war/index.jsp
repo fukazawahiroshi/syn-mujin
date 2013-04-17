@@ -80,8 +80,9 @@ $(window).bind('resize load', function(){
 </c:forEach>
 </ul>
 </div>
+
 <!--/div-->
-<%// level 2 (課) %>
+<%-- <%// level 2 (課) %>
 <!--div id="pageOrganization2" style="display:none;position:absolute;width:50%"-->
 <!--div style="width:50px;position:fixed" onclick='popPage()'><div class="arrow_box_l" style="width:0px;height:100px;left:50px"></div></div-->
 <div id="deptSublist">
@@ -95,7 +96,8 @@ $(window).bind('resize load', function(){
 <div id="deptSublist">
 <ul id="Subsections">
 </ul>
-</div>
+</div> --%>
+
 </div>
 </div>
 
@@ -268,7 +270,7 @@ function showEmpList(dept, section, subsection){
 		}
 	});
 }
-<%// subsection（係）とsectionスタッフのリストを表示 %> 
+<%// subsection（係）とsectionスタッフのリストを表示 %>
 function showSubsection(dept, section){
 	$.ajax({
 		url: "api?getSubsections="+section+"&dept="+dept,
@@ -299,7 +301,7 @@ function showSubsection(dept, section){
 }
 <%// section （課）とdepartmentスタッフのリストを表示 %>
 function showSection(dept){
-	$.ajax({
+	<%-- $.ajax({
 		url: "api?getSections="+dept,
 		dataType:'json',
 		success: function(d){
@@ -327,7 +329,8 @@ function showSection(dept){
 //			console.log($('#Sections').parent().attr();
 //			pushPage($("#pageOrganization2"));
 		}
-	});
+	}); --%>
+
 }
 <%// スタッフ詳細 %>
 function showEmp(obj){

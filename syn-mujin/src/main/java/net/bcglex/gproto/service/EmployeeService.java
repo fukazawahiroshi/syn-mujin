@@ -295,53 +295,53 @@ public class EmployeeService {
 
 	public static void deleteAll(){
 		// 全データ削除
-				NamespaceManager.set("root");
-				List <Key> keys = Datastore.query(EmployeeMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AdmUserMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AdInfoMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(DomainMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AssetMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AccessTokenMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AdminMeta.get()).asKeyList();
-				Datastore.delete(keys);
+		NamespaceManager.set("root");
+		List <Key> keys = Datastore.query(EmployeeMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AdmUserMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AdInfoMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(DomainMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AssetMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AccessTokenMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AdminMeta.get()).asKeyList();
+		Datastore.delete(keys);
 
-				NamespaceManager.set("4any.bc-glex.net");
-				keys = Datastore.query(EmployeeMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AdmUserMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AdInfoMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(DomainMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AssetMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AccessTokenMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AdminMeta.get()).asKeyList();
-				Datastore.delete(keys);
+		NamespaceManager.set("4any.bc-glex.net");
+		keys = Datastore.query(EmployeeMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AdmUserMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AdInfoMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(DomainMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AssetMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AccessTokenMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AdminMeta.get()).asKeyList();
+		Datastore.delete(keys);
 
-				NamespaceManager.set("g-proto.bc-glex.net");
-				keys = Datastore.query(EmployeeMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AdmUserMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AdInfoMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(DomainMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AssetMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AccessTokenMeta.get()).asKeyList();
-				Datastore.delete(keys);
-				keys = Datastore.query(AdminMeta.get()).asKeyList();
-				Datastore.delete(keys);
+		NamespaceManager.set("g-proto.bc-glex.net");
+		keys = Datastore.query(EmployeeMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AdmUserMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AdInfoMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(DomainMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AssetMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AccessTokenMeta.get()).asKeyList();
+		Datastore.delete(keys);
+		keys = Datastore.query(AdminMeta.get()).asKeyList();
+		Datastore.delete(keys);
 	}
 
 	public static List<Employee> queryAll() {
@@ -358,47 +358,54 @@ public class EmployeeService {
 	}
 
 	// HiroshiFukasawa mod 拠点リスト取得処理を部署一覧取得に含めるため、変更
-			private static TreeSet<String> getDepartments(List<Employee> companyStaff, List<String> locations,Boolean hide){
-				TreeSet<String> strSet=new TreeSet<String>();
-				TreeSet<String> strSet_location=new TreeSet<String>();
-				EmployeeMeta e=EmployeeMeta.get();
-				List<Employee> elist=null;
-				if(hide){
-					String location=getTargetLocation();
-					elist=Datastore.query(e).filter(e.needToShow.equal(true), e.location.equal(location)).asList();
-				} else {
-					elist=Datastore.query(e).asList();
-				}
-				System.out.println("Found "+elist.size()+" entries");
-				for(Employee emp : elist){
+	private static TreeSet<String> getDepartments(List<Employee> companyStaff, List<String> locations,Boolean hide){
+		NamespaceManager.set(AssetService.getDomain());
+		TreeSet<String> strSet=new TreeSet<String>();
+		TreeSet<String> strSet_location=new TreeSet<String>();
+		EmployeeMeta e=EmployeeMeta.get();
+		List<Employee> elist=null;
+		if(hide){
+			String location=getTargetLocation();
+			elist=Datastore.query(e).filter(e.needToShow.equal(true), e.location.equal(location)).asList();
+		} else {
+			elist=Datastore.query(e).asList();
+		}
+		System.out.println("Found "+elist.size()+" entries");
+		for(Employee emp : elist){
 
-					String location = emp.getLocation();
-					location=(location==null)? "":location;
-					strSet_location.add(emp.getLocation());
+			String location = emp.getLocation();
+			location=(location==null)? "":location;
+			strSet_location.add(location);
 
-					String department=emp.getDepartment();
-					department=(department==null)? "":department;
-					if(department.isEmpty()){
-						companyStaff.add(emp);
-					} else {
-						strSet.add(emp.getDepartment());
-					}
-				}
-				for(String loc:strSet_location){
-					locations.add(loc);
-				}
-				return strSet;
-			}
+			String department=emp.getDepartment();
 
-		// HiroshiFukasawa mod 拠点リスト取得処理を部署一覧取得に含めるため、変更
-			public static TreeSet<String> getDepartments(List<Employee> companyStaff,List<String> location){
-				return getDepartments(companyStaff,location, false);
-			}
+			// HiroshiFukasawa mod 部署の入力がない場合本部所属とする修正
+//			department=(department==null)? "":department;
+//			if(department.isEmpty()){
+//				companyStaff.add(emp);
+//			} else {
+//				strSet.add(emp.getDepartment());
+//			}
+			department=(department==null)? "本部所属":department;
+			strSet.add(department);
+			// mod end
 
-		// HiroshiFukasawa mod 拠点リスト取得処理を部署一覧取得に含めるため、変更
-			public static TreeSet<String> fetchDepartments(List<Employee> companyStaff,List<String> location){
-				return getDepartments(companyStaff,location, true);
-			}
+		}
+		for(String loc:strSet_location){
+			locations.add(loc);
+		}
+		return strSet;
+	}
+
+	// HiroshiFukasawa mod 拠点リスト取得処理を部署一覧取得に含めるため、変更
+	public static TreeSet<String> getDepartments(List<Employee> companyStaff,List<String> location){
+		return getDepartments(companyStaff,location, false);
+	}
+
+	// HiroshiFukasawa mod 拠点リスト取得処理を部署一覧取得に含めるため、変更
+	public static TreeSet<String> fetchDepartments(List<Employee> companyStaff,List<String> location){
+		return getDepartments(companyStaff,location, true);
+	}
 
 	private static TreeSet<String> getSections(String department, List<Employee> departmentStaff, Boolean hide){
 		TreeSet<String> strSet=new TreeSet<String>();
@@ -482,7 +489,7 @@ public class EmployeeService {
 		// この拠点に属する社員のみ一覧に表示する。
 		AdmUser user=AdmUserService.getUserByEmail(UserServiceFactory.getUserService().getCurrentUser().getEmail());
 		setTargetLocation(user.getLocation());
-		System.out.println("location"+user.getLocation());
+//		System.out.println("location"+user.getLocation());
 		// add end
 
 		EmployeeMeta e=EmployeeMeta.get();

@@ -27,6 +27,17 @@ public class IndexController extends Controller {
 
 	@Override
 	protected Navigation run() throws Exception {
+
+		// HiroshiFukasawa add 拠点絞込み対応
+		// ログインユーザの情報から表示対象拠点を検索しこれをsetTargetLocation()しておく。
+		// この拠点に属する社員のみ一覧に表示する。
+		AdmUser loginuser=AdmUserService.getUserByEmail(UserServiceFactory.getUserService().getCurrentUser().getEmail());
+//		AdmUser loginuser=AdmUserService.getUserByEmail(request.getUserPrincipal().getName());
+		if(loginuser!=null){
+			EmployeeService.setTargetLocation(loginuser.getLocation());
+		}
+		// add end
+
         UserService userService = UserServiceFactory.getUserService();
         String thisURL = request.getRequestURI();
 		response.setContentType("text/html; charset=UTF-8");

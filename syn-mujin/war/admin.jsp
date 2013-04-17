@@ -80,7 +80,7 @@ google apps password: <input type="password" name="password"><input type="submit
  --%>
 <div id="accordion">
 <div>
-<h5><a href="#">拠点▼</a></h5>
+<h5><a href="#">拠点▼</a><a>${f:h(location)}</a></h5>
 <ul style="list-style:none">
 <c:forEach var="d" items="${locationList}" varStatus="status">
 <li id="${status.index}><a href="#">${f:h(d)}</a></li>
@@ -183,7 +183,7 @@ $(function(){
 		        location: $str
 			},
 			success: function(arr) {
-				/* $("#accordion div div").text("拠点▼："+$str); */
+				$("#accordion div div").text("拠点▼："+$str);
 				$("#accordion").accordion({
 					active:4
 				});

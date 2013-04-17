@@ -1,6 +1,6 @@
 package net.bcglex.gproto.meta;
 
-//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2013-04-17 13:55:47")
+//@javax.annotation.Generated(value = { "slim3-gen", "@VERSION@" }, date = "2013-04-17 18:05:14")
 /** */
 public final class DomainMeta extends org.slim3.datastore.ModelMeta<net.bcglex.gproto.model.Domain> {
 

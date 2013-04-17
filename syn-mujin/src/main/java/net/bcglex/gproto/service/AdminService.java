@@ -4,6 +4,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 import org.slim3.datastore.Datastore;
+
+import com.google.appengine.api.NamespaceManager;
 import com.google.appengine.api.datastore.Key;
 import com.google.gdata.client.Query;
 import com.google.gdata.client.contacts.ContactsService;
@@ -25,8 +27,9 @@ import net.bcglex.gproto.model.Admin;
 
 public class AdminService {
 
-	
+
 	public static String getAdminEmail(){
+		NamespaceManager.set("root");
 		Key key=Datastore.createKey(Admin.class, "Admin");
 		try {
 			return Datastore.get(Admin.class, key).getAdminEmail();
@@ -36,7 +39,7 @@ public class AdminService {
 			return adminEmail;
 		}
 	}
-	
+
 	public static void setAdminEmail(String adminEmail){
 		Key key=Datastore.createKey(Admin.class, "Admin");
 		Admin ai=new Admin();

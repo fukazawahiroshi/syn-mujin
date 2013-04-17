@@ -49,9 +49,9 @@ public class AdminController extends Controller {
 
 	// 顧客管理ユーザ
 //	private static final String VALIDDOMAIN = "4any.bc-glex.net";
-	private static final String ADMINEMAIL = "syn-mujinadm@4any.bc-glex.net";
+//	private static final String ADMINEMAIL = "syn-mujinadm@4any.bc-glex.net";
 
-//	private static final String ADMINEMAIL = AdminService.getAdminEmail();
+	private static final String ADMINEMAIL = AdminService.getAdminEmail();
 
 //	private static final String ADMINPASSWORD = "I2!!8Owk";
 //	private static final String VALIDDOMAIN="g-proto.bc-glex.net";
